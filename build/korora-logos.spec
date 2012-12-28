@@ -1,5 +1,5 @@
 Name:       korora-logos
-Version:    17.0.0
+Version:    18.0
 Release:    1%{?dist}.4
 Summary:    Icons and pictures
 

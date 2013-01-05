@@ -1,11 +1,11 @@
 Name:       korora-logos
-Version:    18.0
-Release:    1%{?dist}.4
+Version:    18.0.0
+Release:    1%{?dist}
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
-URL:        http://kororaproject.org
-Source0:    %{name}-%{version}.tar.gz
+URL:        http://kororaproject.org 
+Source0:    %{name}-%{version}.tar.bz2
 #The KDE Logo is under a LGPL license (no version statement)
 License:    GPLv2 and LGPLv2+
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -15,8 +15,8 @@ Obsoletes:  redhat-logos
 Provides:   redhat-logos = %{version}-%{release}
 Provides:   system-logos = %{version}-%{release}
 
-Obsoletes:  fedora-logos
-Provides:   fedora-logos
+Obsoletes:  fedora-logos kororaa-logos
+Provides:   fedora-logos kororaa-logos
 Conflicts:  anaconda-images <= 10
 Conflicts:  redhat-artwork <= 5.0.5
 BuildRequires: hardlink
@@ -24,7 +24,7 @@ BuildRequires: hardlink
 BuildRequires: kde-filesystem
 # For generating the EFI icon
 BuildRequires: libicns-utils
-Requires(post): coreutils grub2 grub2-tools
+Requires(post): coreutils grub2 grub2-tools plymouth plymouth-scripts
 
 %description
 The korora-logos package contains various image files which can be
@@ -44,7 +44,6 @@ mkdir -p %{buildroot}/boot/grub
 install -p -m 644 bootloader/splash.xpm.gz %{buildroot}/boot/grub/splash.xpm.gz
 mkdir -p $RPM_BUILD_ROOT/boot/grub2/themes/system/
 install -p -m 644 bootloader/background.png $RPM_BUILD_ROOT/boot/grub2/themes/system/background.png
-install -p -m 644 bootloader/background.png $RPM_BUILD_ROOT/boot/grub2/themes/system/fireworks.png
 # end i386 bits
 
 mkdir -p %{buildroot}%{_datadir}/firstboot/themes/korora
@@ -70,9 +69,9 @@ install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_kde4_iconsdir}/oxygen
 mkdir -p %{buildroot}%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536
 #install -p -m 644 ksplash/SolarComet-kde.png %{buildroot}%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536/logo.png
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/charge/
-for i in plymouth/charge/* ; do
-    install -p -m 644 $i $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/charge/
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/korora/
+for i in plymouth/korora/* ; do
+    install -p -m 644 $i $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/korora/
 done
 
 # File or directory names do not count as trademark infringement
@@ -94,6 +93,9 @@ touch --no-create %{_kde4_iconsdir}/oxygen ||:
 if [ ! -e "/etc/default/grub-test" -o -z "$(grep ^GRUB_THEME /etc/default/grub-test 2>/dev/null)" ]; then echo 'GRUB_THEME="/boot/grub2/themes/system/theme.txt"' >> /etc/default/grub-test; fi
 
 /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+
+/usr/sbin/plymouth-set-default-theme korora
+/usr/libexec/plymouth/plymouth-update-initrd
 
 %postun
 if [ $1 -eq 0 ] ; then
@@ -131,16 +133,18 @@ rm -rf %{buildroot}
 %{_datadir}/anaconda/pixmaps/*
 %{_datadir}/icons/Fedora/*/apps/*
 %{_datadir}/pixmaps/*
-%{_datadir}/plymouth/themes/charge/*
+%{_datadir}/plymouth/themes/korora/*
 #%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536/logo.png
 %{_kde4_iconsdir}/oxygen/
 # should be ifarch i386
 /boot/grub/splash.xpm.gz
 /boot/grub2/themes/system/background.png
-/boot/grub2/themes/system/fireworks.png
 # end i386 bits
 
 %changelog
+* Thu Oct 25 2012 Chris Smart <csmart@kororaproject.org> - 18.0.0-1
+- Update for Korora 18 release.
+
 * Fri Jul 6 2012 Chris Smart <chris@kororaa.org> - 17.0.0-1
 - Update for Kororaa 17 release.
 

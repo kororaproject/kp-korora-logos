@@ -1,11 +1,11 @@
 Name:       korora-logos
-Version:    18.0.0
+Version:    18.0
 Release:    1%{?dist}
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
-URL:        http://kororaproject.org 
-Source0:    %{name}-%{version}.tar.bz2
+URL:        http://kororaproject.org
+Source0:    %{name}-%{version}.tar.gz
 #The KDE Logo is under a LGPL license (no version statement)
 License:    GPLv2 and LGPLv2+
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)

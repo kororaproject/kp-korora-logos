@@ -24,7 +24,7 @@ BuildRequires: hardlink
 BuildRequires: kde-filesystem
 # For generating the EFI icon
 BuildRequires: libicns-utils
-Requires(post): coreutils grub2 grub2-tools plymouth plymouth-scripts
+Requires(post): coreutils grub2 grub2-tools plymouth plymouth-scripts plymouth-plugin-two-step
 
 %description
 The korora-logos package contains various image files which can be

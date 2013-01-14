@@ -71,7 +71,7 @@ mkdir -p %{buildroot}%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/korora/
 for i in plymouth/korora/* ; do
-    install -p -m 644 $i $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/korora/
+  install -p -m 644 $i $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/korora/
 done
 
 # File or directory names do not count as trademark infringement
@@ -90,7 +90,9 @@ touch --no-create %{_datadir}/icons/Fedora || :
 touch --no-create %{_kde4_iconsdir}/oxygen ||:
 #dracut -f /boot/initramfs-$(uname -r).img $(uname -r) 2>/dev/null
 
-if [ ! -e "/etc/default/grub-test" -o -z "$(grep ^GRUB_THEME /etc/default/grub-test 2>/dev/null)" ]; then echo 'GRUB_THEME="/boot/grub2/themes/system/theme.txt"' >> /etc/default/grub-test; fi
+if [ ! -e "/etc/default/grub-test" -o -z "$(grep ^GRUB_THEME /etc/default/grub-test 2>/dev/null)" ]; then
+  echo 'GRUB_THEME="/boot/grub2/themes/system/theme.txt"' >> /etc/default/grub-test;
+fi
 
 /usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
 
@@ -99,16 +101,16 @@ if [ ! -e "/etc/default/grub-test" -o -z "$(grep ^GRUB_THEME /etc/default/grub-t
 
 %postun
 if [ $1 -eq 0 ] ; then
-touch --no-create %{_datadir}/icons/Fedora || :
-touch --no-create %{_kde4_iconsdir}/oxygen ||:
-if [ -x /usr/bin/gtk-update-icon-cache ]; then
-  if [ -f %{_datadir}/icons/Fedora/index.theme ]; then
-    gtk-update-icon-cache --quiet %{_datadir}/icons/Fedora || :
+  touch --no-create %{_datadir}/icons/Fedora || :
+  touch --no-create %{_kde4_iconsdir}/oxygen || :
+  if [ -x /usr/bin/gtk-update-icon-cache ]; then
+    if [ -f %{_datadir}/icons/Fedora/index.theme ]; then
+      gtk-update-icon-cache --quiet %{_datadir}/icons/Fedora || :
+    fi
+    if [ -f %{_kde4_iconsdir}/Fedora-KDE/index.theme ]; then
+      gtk-update-icon-cache --quiet %{_kde4_iconsdir}/Fedora-KDE/index.theme || :
+    fi
   fi
-  if [ -f %{_kde4_iconsdir}/Fedora-KDE/index.theme ]; then
-    gtk-update-icon-cache --quiet %{_kde4_iconsdir}/Fedora-KDE/index.theme || :
-  fi
-fi
 fi
 
 %posttrans

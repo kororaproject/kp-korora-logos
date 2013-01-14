@@ -78,7 +78,7 @@ done
 mkdir -p %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
 mkdir -p %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
 install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
-install	-p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
+install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
 
 (cd anaconda; make DESTDIR=%{buildroot} install)
 
@@ -87,7 +87,7 @@ install	-p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fed
 
 %post
 touch --no-create %{_datadir}/icons/Fedora || :
-touch --no-create %{_kde4_iconsdir}/oxygen ||:
+touch --no-create %{_kde4_iconsdir}/oxygen || :
 #dracut -f /boot/initramfs-$(uname -r).img $(uname -r) 2>/dev/null
 
 if [ ! -e "/etc/default/grub-test" -o -z "$(grep ^GRUB_THEME /etc/default/grub-test 2>/dev/null)" ]; then

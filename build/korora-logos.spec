@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    18.0
-Release:    1%{?dist}
+Release:    1%{?dist}.1
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -69,9 +69,9 @@ install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_kde4_iconsdir}/oxygen
 mkdir -p %{buildroot}%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536
 #install -p -m 644 ksplash/SolarComet-kde.png %{buildroot}%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536/logo.png
 
-mkdir -p $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/korora/
-for i in plymouth/korora/* ; do
-  install -p -m 644 $i $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/korora/
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/charge/
+for i in plymouth/charge/* ; do
+  install -p -m 644 $i $RPM_BUILD_ROOT%{_datadir}/plymouth/themes/charge/
 done
 
 # File or directory names do not count as trademark infringement
@@ -94,10 +94,10 @@ if [ ! -e "/etc/default/grub-test" -o -z "$(grep ^GRUB_THEME /etc/default/grub-t
   echo 'GRUB_THEME="/boot/grub2/themes/system/theme.txt"' >> /etc/default/grub-test;
 fi
 
-/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
-
-/usr/sbin/plymouth-set-default-theme korora
-/usr/libexec/plymouth/plymouth-update-initrd
+#korora artwork stuff
+#/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+#/usr/sbin/plymouth-set-default-theme charge
+#/usr/libexec/plymouth/plymouth-update-initrd
 
 %postun
 if [ $1 -eq 0 ] ; then

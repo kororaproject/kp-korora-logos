@@ -1,10 +1,10 @@
 [Plymouth Theme]
-Name=Korora
+Name=Charge
 Description=A theme designed for Korora.
 ModuleName=two-step
 
 [two-step]
-ImageDir=/usr/share/plymouth/themes/korora
+ImageDir=/usr/share/plymouth/themes/charge
 HorizontalAlignment=.5
 VerticalAlignment=.5
 Transition=none

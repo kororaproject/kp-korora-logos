@@ -46,9 +46,9 @@ mkdir -p $RPM_BUILD_ROOT/boot/grub2/themes/system/
 install -p -m 644 bootloader/background.png $RPM_BUILD_ROOT/boot/grub2/themes/system/background.png
 # end i386 bits
 
-mkdir -p %{buildroot}%{_datadir}/firstboot/themes/korora
+mkdir -p %{buildroot}%{_datadir}/firstboot/themes/generic
 for i in firstboot/* ; do
-  install -p -m 644 $i %{buildroot}%{_datadir}/firstboot/themes/korora
+  install -p -m 644 $i %{buildroot}%{_datadir}/firstboot/themes/generic
 done
 
 #mkdir -p %{buildroot}%{_datadir}/pixmaps/bootloader
@@ -135,7 +135,7 @@ rm -rf %{buildroot}
 %{_datadir}/anaconda/pixmaps/*
 %{_datadir}/icons/Fedora/*/apps/*
 %{_datadir}/pixmaps/*
-%{_datadir}/plymouth/themes/korora/*
+%{_datadir}/plymouth/themes/charge/*
 #%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536/logo.png
 %{_kde4_iconsdir}/oxygen/
 # should be ifarch i386

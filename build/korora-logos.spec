@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    18.0
-Release:    1%{?dist}.1
+Release:    1%{?dist}.2
 Summary:    Icons and pictures
 
 Group:      System Environment/Base

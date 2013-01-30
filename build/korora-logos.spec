@@ -44,6 +44,7 @@ mkdir -p %{buildroot}/boot/grub
 install -p -m 644 bootloader/splash.xpm.gz %{buildroot}/boot/grub/splash.xpm.gz
 mkdir -p $RPM_BUILD_ROOT/boot/grub2/themes/system/
 install -p -m 644 bootloader/background.png $RPM_BUILD_ROOT/boot/grub2/themes/system/background.png
+install -p -m 644 bootloader/background.png $RPM_BUILD_ROOT/boot/grub2/themes/system/fireworks.png
 # end i386 bits
 
 mkdir -p %{buildroot}%{_datadir}/firstboot/themes/generic
@@ -141,6 +142,7 @@ rm -rf %{buildroot}
 # should be ifarch i386
 /boot/grub/splash.xpm.gz
 /boot/grub2/themes/system/background.png
+/boot/grub2/themes/system/fireworks.png
 # end i386 bits
 
 %changelog

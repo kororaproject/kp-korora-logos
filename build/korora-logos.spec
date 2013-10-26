@@ -1,5 +1,5 @@
 Name:       korora-logos
-Version:    19.0
+Version:    20.0
 Release:    1%{?dist}
 Summary:    Icons and pictures
 
@@ -146,6 +146,9 @@ rm -rf %{buildroot}
 # end i386 bits
 
 %changelog
+* Sun Oct 27 2013 Chris Smart <csmart@kororaproject.org> - 20.0-1
+- Update for Korora 20 release.
+
 * Sat May 11 2013 Ian Firns <firnsy@kororaproject.org> - 19.0-1
 - Update for Korora 19 release.
 

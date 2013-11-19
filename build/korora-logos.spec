@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    20.0
-Release:    1%{?dist}
+Release:    1%{?dist}.1
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -15,8 +15,8 @@ Obsoletes:  redhat-logos
 Provides:   redhat-logos = %{version}-%{release}
 Provides:   system-logos = %{version}-%{release}
 
-Obsoletes:  fedora-logos kororaa-logos
-Provides:   fedora-logos kororaa-logos
+Obsoletes:  fedora-logos kororaa-logos fedora-logos-httpd
+Provides:   fedora-logos kororaa-logos fedora-logos-httpd
 Conflicts:  anaconda-images <= 10
 Conflicts:  redhat-artwork <= 5.0.5
 BuildRequires: hardlink

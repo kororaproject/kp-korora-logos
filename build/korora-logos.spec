@@ -1,6 +1,6 @@
 Name:       korora-logos
-Version:    20.0
-Release:    1%{?dist}.2
+Version:    21.0
+Release:    1%{?dist}
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -146,6 +146,9 @@ rm -rf %{buildroot}
 # end i386 bits
 
 %changelog
+* Sun Dec 28 2014 Chris Smart <csmart@kororaproject.org> - 21.0-1
+- Update for Korora 21 release.
+
 * Sun Oct 27 2013 Chris Smart <csmart@kororaproject.org> - 20.0-1
 - Update for Korora 20 release.
 

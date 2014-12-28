@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    21.0
-Release:    1%{?dist}.1
+Release:    1%{?dist}.2
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -76,12 +76,12 @@ for i in plymouth/charge/* ; do
 done
 
 # File or directory names do not count as trademark infringement
-mkdir -p %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
+#mkdir -p %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
 mkdir -p %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
-mkdir -p %{buildroot}%{_datadir}/icons/korora/48x48/apps/
+#mkdir -p %{buildroot}%{_datadir}/icons/korora/48x48/apps/
 mkdir -p %{buildroot}%{_datadir}/icons/korora/scalable/apps/
-install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
-install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/korora/48x48/apps/
+#install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
+#install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/korora/48x48/apps/
 install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
 install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/korora/scalable/apps/
 

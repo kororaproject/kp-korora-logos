@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    21.0
-Release:    1%{?dist}.2
+Release:    1%{?dist}.3
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -79,11 +79,11 @@ done
 #mkdir -p %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
 mkdir -p %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
 #mkdir -p %{buildroot}%{_datadir}/icons/korora/48x48/apps/
-mkdir -p %{buildroot}%{_datadir}/icons/korora/scalable/apps/
+#mkdir -p %{buildroot}%{_datadir}/icons/korora/scalable/apps/
 #install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
 #install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/korora/48x48/apps/
 install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
-install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/korora/scalable/apps/
+#install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/korora/scalable/apps/
 
 (cd anaconda; make DESTDIR=%{buildroot} install)
 
@@ -139,7 +139,7 @@ rm -rf %{buildroot}
 %{_datadir}/anaconda/boot/*
 %{_datadir}/anaconda/pixmaps/*
 %{_datadir}/icons/Fedora/*/apps/*
-%{_datadir}/icons/korora/*/apps/*
+#%{_datadir}/icons/korora/*/apps/*
 %{_datadir}/pixmaps/*
 %{_datadir}/plymouth/themes/charge/*
 #%{_kde4_appsdir}/ksplash/Themes/Leonidas/2048x1536/logo.png

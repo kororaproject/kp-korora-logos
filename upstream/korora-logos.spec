@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    23.0
-Release:    1%{?dist}.2
+Release:    1%{?dist}
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -68,11 +68,6 @@ mkdir -p %{buildroot}%{_datadir}/pixmaps/bootloader
 install -p -m 644 bootloader/fedora.icns %{buildroot}%{_datadir}/pixmaps/bootloader
 install -p -m 644 bootloader/fedora.vol %{buildroot}%{_datadir}/pixmaps/bootloader
 install -p -m 644 bootloader/fedora-media.vol  %{buildroot}%{_datadir}/pixmaps/bootloader
-
-mkdir -p %{buildroot}%{_datadir}/anaconda/pixmaps/workstation
-install -p -m 644 workstation/sidebar-bg.png %{buildroot}%{_datadir}/anaconda/pixmaps/workstation/
-install -p -m 644 workstation/sidebar-logo.png %{buildroot}%{_datadir}/anaconda/pixmaps/workstation/
-install -p -m 644 workstation/topbar-bg.png %{buildroot}%{_datadir}/anaconda/pixmaps/workstation/
 
 mkdir -p %{buildroot}%{_datadir}/pixmaps/splash
 for i in gnome-splash/* ; do

@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    23.0
-Release:    1%{?dist}.2
+Release:    1%{?dist}.3
 Summary:    Icons and pictures
 
 Group:      System Environment/Base

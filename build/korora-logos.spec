@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    23.0
-Release:    1%{?dist}.3
+Release:    1%{?dist}.4
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -104,6 +104,10 @@ install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fed
 
 # save some dup'd icons
 /usr/sbin/hardlink -v %{buildroot}/
+
+cd %{buildroot}%{_datadir}/anaconda/boot
+ln splash.png syslinux-splash.png
+cd -
 
 %post
 touch --no-create %{_datadir}/icons/Fedora || :

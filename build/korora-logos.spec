@@ -1,6 +1,6 @@
 Name:       korora-logos
 Version:    25.0
-Release:    1%{?dist}
+Release:    1%{?dist}.1
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -103,6 +103,9 @@ install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fed
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/scalable/apps
 install -p -m 644 icons/Fedora/scalable/apps/anaconda.svg $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/scalable/apps/anaconda.svg
 
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/scalable/places
+install -p -m 644 pixmaps/fedora-logo-sprite.svg $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/scalable/places/start-here.svg
+
 (cd anaconda; make DESTDIR=%{buildroot} install)
 
 # save some dup'd icons
@@ -152,6 +155,7 @@ rm -rf %{buildroot}
 %{_datadir}/anaconda/pixmaps/*
 %{_datadir}/icons/Fedora/*/apps/*
 %{_datadir}/icons/hicolor/*/apps/*
+%{_datadir}/icons/hicolor/*/places/*
 %{_datadir}/pixmaps/*
 %exclude %{_datadir}/pixmaps/poweredby.png
 %{_datadir}/plymouth/themes/charge/*

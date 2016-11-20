@@ -1,6 +1,6 @@
 Name:       korora-logos
-Version:    23.0
-Release:    1%{?dist}.4
+Version:    25.0
+Release:    1%{?dist}
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -100,6 +100,9 @@ mkdir -p %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
 install -p -m 644 icons/Fedora/48x48/apps/* %{buildroot}%{_datadir}/icons/Fedora/48x48/apps/
 install -p -m 644 icons/Fedora/scalable/apps/* %{buildroot}%{_datadir}/icons/Fedora/scalable/apps/
 
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/scalable/apps
+install -p -m 644 icons/Fedora/scalable/apps/anaconda.svg $RPM_BUILD_ROOT%{_datadir}/icons/hicolor/scalable/apps/anaconda.svg
+
 (cd anaconda; make DESTDIR=%{buildroot} install)
 
 # save some dup'd icons
@@ -148,6 +151,7 @@ rm -rf %{buildroot}
 %{_datadir}/anaconda/boot/*
 %{_datadir}/anaconda/pixmaps/*
 %{_datadir}/icons/Fedora/*/apps/*
+%{_datadir}/icons/hicolor/*/apps/*
 %{_datadir}/pixmaps/*
 %exclude %{_datadir}/pixmaps/poweredby.png
 %{_datadir}/plymouth/themes/charge/*
@@ -162,6 +166,9 @@ rm -rf %{buildroot}
 %{_datadir}/pixmaps/poweredby.png
 
 %changelog
+* Sun Nov 20 2016 Chris Smart <csmart@kororaproject.org> - 25.0-1
+- Update for Korora 25 release, fixes Anaconda icon 
+
 * Sun Oct 18 2015 Chris Smart <csmart@kororaproject.org> - 23.0-1
 - Update for Korora 23 release.
 

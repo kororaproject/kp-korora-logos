@@ -1,6 +1,6 @@
 Name:       korora-logos
-Version:    25.0
-Release:    1%{?dist}.1
+Version:    26.0
+Release:    1%{?dist}
 Summary:    Icons and pictures
 
 Group:      System Environment/Base
@@ -170,6 +170,9 @@ rm -rf %{buildroot}
 %{_datadir}/pixmaps/poweredby.png
 
 %changelog
+* Sun Aug 20 2017 Ian Firns <firnsy@kororaproject.org> - 26.0-1
+- Update for Korora 26 release.
+
 * Sun Nov 20 2016 Chris Smart <csmart@kororaproject.org> - 25.0-1
 - Update for Korora 25 release, fixes Anaconda icon 
 
